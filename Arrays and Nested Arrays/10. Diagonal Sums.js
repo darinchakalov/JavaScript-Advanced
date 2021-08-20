@@ -1,25 +1,19 @@
 function solve(input) {
-    let correct = input;
-    console.log(correct[0]);
-    let reversed = [];
-    for (let line of input) {
-        reversed.push(line.reverse());
-    }
-    let result = [findDiagonalSum(correct), findDiagonalSum(reversed)];
+    let rightSum = 0;
+    let reversedSum = 0;
 
-    console.log(result.join(" "));
-
-    function findDiagonalSum(arr) {
-        let sum = 0;
-        for (let i = 0; i < input.length; i++) {
-            for (let j = 0; j < input[i].length; j++) {
-                if (j === i) {
-                    sum += input[i][j];
-                }
+    for (let i = 0; i < input.length; i++) {
+        for (let j = 0; j < input[i].length; j++) {
+            if (j === i) {
+                rightSum += input[i][j];
+            }
+            if (j === (input[i].length - 1) - i) {
+                reversedSum += input[i][j];
             }
         }
-        return sum;
     }
+
+    console.log(rightSum, reversedSum);
 }
 solve([
     [3, 5, 17],
