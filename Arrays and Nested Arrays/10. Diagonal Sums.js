@@ -2,7 +2,7 @@ function solve(input) {
     let rightSum = 0;
     let reversedSum = 0;
 
-    for (let i = 0; i < input.length; i++) {
+    /*for (let i = 0; i < input.length; i++) {
         for (let j = 0; j < input[i].length; j++) {
             if (j === i) {
                 rightSum += input[i][j];
@@ -11,7 +11,13 @@ function solve(input) {
                 reversedSum += input[i][j];
             }
         }
-    }
+    }*/
+    let firstIndex = 0
+    let secondIndex = input[0].length -1;
+    input.forEach(el => {
+        rightSum += el[firstIndex++];
+        reversedSum += el[secondIndex--];
+    });
 
     console.log(rightSum, reversedSum);
 }
