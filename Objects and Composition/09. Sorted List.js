@@ -1,26 +1,37 @@
 function createSortedList() {
-    let obj = {}
-    let result = []
-    obj.size = result.length;
+    let obj = {
+        array: [],
+        size: 0,
+    };
     obj.add = (num) => {
-        result.push(num);
-        result.sort((a, b) => a - b);
-    }
+        obj.array.push(num);
+        obj.array.sort((a, b) => a - b);
+        obj.size++;
+    };
     obj.remove = (index) => {
-        result.splice(index, 1);
-        result.sort((a, b) => a - b);
+        if (index >= 0 || index < obj.array.length) {
+            obj.array.splice(index, 1);
+            //obj.array.sort((a, b) => a - b);
+            obj.size--
+        } else {
+            throw new Error('Index outside the array')
+        }
     };
     obj.get = (index) => {
-        return result[index];
+        if (index >= 0 || index < obj.array.length) {
+            return obj.array[index];
+        } else {
+            throw new Error('Index outside the array')
+        }
     };
-    return obj
+
+    return obj;
 }
 let list = createSortedList();
 list.add(5);
 list.add(6);
 list.add(7);
-console.log(list.result);
-console.log(list.get(1)); 
+console.log(list.size);
+console.log(list.get(1));
 list.remove(1);
-console.log(list.get(1));	
-
+console.log(list.get(1));
