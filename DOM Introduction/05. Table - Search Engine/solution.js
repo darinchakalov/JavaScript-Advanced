@@ -8,7 +8,7 @@ function solve() {
          td.parentElement.classList.remove('select')
       }
       for (let td of table) {
-         if (td.textContent.toLowerCase().includes(searchString)) {
+         if (td.textContent.toLowerCase().includes(searchString.toLowerCase())) {
             td.parentElement.classList.add('select')
          }
       }
