@@ -1,19 +1,15 @@
-function test() {
-    let test1 = {
-        1: 't',
-        2: 'e',
-        3: 's'
+function calculator() {
+    let obj = {s1: null, s2: null}
+    obj.init = (selector1, selector2) => {
+        s1 = selector1
+        s2 = selector1
     }
-    let test2 = Object.assign({}, test1)
-    let test3 = {...test1}
-    let test4 = test1
-
-    test1['4'] = 't'
-    test4['ddd'] = 'vvv'
-    console.log(test1);
-    console.log(test2);
-    console.log(test3);
-    console.log(test4);
-
+    obj.add = () => {
+        return s1
+    }
+    return obj;
 }
-test()
+
+let test = calculator()
+test.init(1,2)
+console.log(test.add());

@@ -1,6 +1,5 @@
 function solution(n) {
     let num = 0;
-    console.log(`this` + n);
     return function (num) {
         return num += n;
     };

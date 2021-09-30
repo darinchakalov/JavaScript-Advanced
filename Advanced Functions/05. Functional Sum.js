@@ -1,0 +1,15 @@
+function add(n) {
+    let sum = n;
+    function calc(num2) {
+        sum += num2;
+        return calc;
+    }
+
+    calc.toString = function() {
+        return sum;
+    }
+    return calc
+}
+console.log(add(1));
+console.log(add(3));
+console.log(add(1)(6)(-3));  
