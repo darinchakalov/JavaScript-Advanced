@@ -7,6 +7,12 @@ function solve() {
         "#exercise > div > div > div > div > table > tbody > tr:nth-child(1) > td:nth-child(5) > input[type=checkbox]"
     ).disabled = false;
 
+        /// create arrays for each div
+        // then for each new object (module) push in the array and sort by date
+        // create function which will convert the object into html element
+        
+
+
     generateBtn.addEventListener("click", () => {
         let products = JSON.parse(input.value);
         for (const product of products) {
