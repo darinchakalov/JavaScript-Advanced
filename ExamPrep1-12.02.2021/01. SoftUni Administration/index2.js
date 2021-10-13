@@ -71,6 +71,7 @@ function solve() {
                         modulesSection.appendChild(fundamentalsModule);
                     }
                     fundamentalsModule.appendChild(fundamentalsUl);
+                    sortByDate(fundamentalsUl)
                     break;
                 case "Advanced":
                     addToDiv(advancedUl);
@@ -78,6 +79,7 @@ function solve() {
                         modulesSection.appendChild(advancedModule);
                     }
                     advancedModule.appendChild(advancedUl);
+                    sortByDate(advancedUl)
                     break;
                 case "DB":
                     addToDiv(dbUl);
@@ -85,6 +87,7 @@ function solve() {
                         modulesSection.appendChild(dbModule);
                     }
                     dbModule.appendChild(dbUl);
+                    sortByDate(dbUl)
                     break;
                 case "Web":
                     addToDiv(webUl);
@@ -92,13 +95,14 @@ function solve() {
                         modulesSection.appendChild(webModule);
                     }
                     webModule.appendChild(webUl);
+                    sortByDate(webUl)
                     break;
             }
         }
         Array.from(modulesSection.querySelectorAll("button")).forEach((btn) => {
             btn.addEventListener("click", () => {
                 let currentModule = btn.parentNode.parentNode.parentNode;
-                let currentUl = btn.parentNode.parentNode
+                let currentUl = btn.parentNode.parentNode;
                 if (currentUl.children.length === 1) {
                     currentModule.remove();
                 } else {
@@ -108,9 +112,15 @@ function solve() {
         });
     });
 
-    function sortByDate(ul){
-        let liList = Array.from(ul.children)
-        console.log(liList);
+    function sortByDate(ul) {
+        let listOfLis = Array.from(ul.children);
+        listOfLis.sort((a, b) => a.textContent.localeCompare(b.textContent));
+        ul.querySelectorAll("li").forEach((li) => {
+            li.remove();
+        });
+        listOfLis.forEach((li) => {
+            ul.appendChild(li);
+        });
     }
 
     function addToDiv(currentUl) {
