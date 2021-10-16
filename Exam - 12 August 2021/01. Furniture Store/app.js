@@ -9,10 +9,13 @@ function solve() {
     let furnitureList = document.querySelector("#furniture-list");
     let totalPrice = document.querySelector("#information > tfoot > tr > td.total-price")
 
-    // model.value = "Chair";
-    // year.value = 2016;
-    // description.value = "Comfortable for you and your pet";
-    // price.value = 48;
+    model.value = "Chair";
+    year.value = 2016;
+    description.value = "Comfortable for you and your pet";
+    price.value = 48;
+
+
+    // !!!!! NEED TO CLEAR THE INPUTS AFTER THE BUTTON IS CLICKED !!!!!
 
     addBtn.addEventListener("click", (event) => {
         event.preventDefault();
