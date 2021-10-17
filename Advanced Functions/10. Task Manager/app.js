@@ -11,8 +11,6 @@ function solve() {
     // description.value = "Lern DOM, Unit Testing and Classes";
     // date.value = "2020.04.08";
 
-    ///
-
     addBtn.addEventListener("click", function () {
         if (task.value && description.value && dueDate.value) {
             let openDiv = sections[1].children[1];
